@@ -1,13 +1,16 @@
 from rest_framework.views import APIView
 from rest_framework.viewsets import ViewSet
+from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
 from rest_framework import status
 from apps.registro.models import Registro
 from apps.registro.api.serializers import RegistroSerializer
 
-class RegistroApiView(ViewSet):
+class RegistroModelView(ModelViewSet):
+    serializer_class = RegistroSerializer
+    queryset = Registro.objects.all()
 
-    def list(self,request):
+    '''def list(self,request):
         serializer = RegistroSerializer(Registro.objects.all(), many=True)
         return Response(status=status.HTTP_200_OK, data=serializer.data)
     
@@ -44,4 +47,4 @@ class RegistroApiView(ViewSet):
     def destroy(self, request, pk):
         serializer = Registro.objects.get(pk=pk)
         serializer.delete()
-        return Response(status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_200_OK)'''

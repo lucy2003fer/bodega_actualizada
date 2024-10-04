@@ -1,5 +1,5 @@
 from rest_framework.routers import DefaultRouter
-from apps.registro.api.views import RegistroApiView
+from apps.registro.api.views import RegistroModelView
 
 router_registro = DefaultRouter()
-router_registro.register(prefix="registro", basename="registro", viewset=RegistroApiView)
+router_registro.register(prefix="registro", basename="registro", viewset=RegistroModelView)
